@@ -46,9 +46,10 @@ class FirstFragment : Fragment() {
         }
 
 
-        countViewModel.getMutableLiveData().observe(viewLifecycleOwner, Observer { set ->
-            Log.i("HARRY","Received Value :"+set)
-            Toast.makeText(view.context,"received Value: "+ set, Toast.LENGTH_SHORT).show()
+        countViewModel.getMutableLiveData().observe(viewLifecycleOwner, Observer { incomingValue ->
+            Log.i("HARRY","Received Value :"+incomingValue)
+            Toast.makeText(view.context,"received Value: "+ incomingValue, Toast.LENGTH_SHORT).show()
+            binding.textviewFirst.text = "Count : "+incomingValue
         })
 
         binding.increment.setOnClickListener {
