@@ -53,9 +53,7 @@ class SecondFragment : Fragment() {
             Toast.makeText(view.context,"received Value: "+ incomingValue, Toast.LENGTH_SHORT).show()
             binding.textviewSecond.text = "Count : "+incomingValue
         })
-
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
