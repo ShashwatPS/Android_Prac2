@@ -15,4 +15,11 @@ class CountViewModel : ViewModel() {
         mutableCountLiveData.value = 0;
     }
 
+    fun increment(){
+        mutableCountLiveData.value = mutableCountLiveData.value!! + 1
+    }
+
+    fun decrement(){
+        mutableCountLiveData.value = mutableCountLiveData.value!! - 1
+    }
 }

@@ -51,6 +51,9 @@ class FirstFragment : Fragment() {
             Toast.makeText(view.context,"received Value: "+ set, Toast.LENGTH_SHORT).show()
         })
 
+        binding.increment.setOnClickListener {
+            countViewModel.increment()
+        }
 
     }
 
