@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.androidprac.R
 import com.example.androidprac.databinding.FragmentSecondBinding
-import com.example.androidprac.viewmodel.CountViewModel
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -20,8 +19,6 @@ import com.example.androidprac.viewmodel.CountViewModel
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
-
-    private val countViewModel: CountViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -44,15 +41,6 @@ class SecondFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
 
-        binding.decrement.setOnClickListener {
-            countViewModel.decrement()
-        }
-
-        countViewModel.getMutableLiveData().observe(viewLifecycleOwner, Observer { incomingValue ->
-            Log.i("HARRY","Received Value :"+incomingValue)
-            Toast.makeText(view.context,"received Value: "+ incomingValue, Toast.LENGTH_SHORT).show()
-            binding.textviewSecond.text = "Count : "+incomingValue
-        })
     }
     override fun onDestroyView() {
         super.onDestroyView()
